@@ -1,0 +1,5 @@
+input: data/raw/tiny_codes.txt
+tokenizer: data/tokenizer/merge_rules.pkl
+output: data/processed/tiny_codes.bin
+dtype: uint16
+end_token: "<|endoftext|>"
