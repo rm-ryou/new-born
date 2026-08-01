@@ -208,6 +208,13 @@ tempCodeRunnerFile.py
 # Ruff stuff:
 .ruff_cache/
 
+# Project data artifacts
+data/processed/*
+data/tokenizer/*
+
+!data/processed/.gitkeep
+!data/tokenizer/.gitkeep
+
 # PyPI configuration file
 .pypirc
 
