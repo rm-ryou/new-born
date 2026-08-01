@@ -12,3 +12,49 @@ dev = [
     "ruff>=0.16.1",
     "ty>=0.0.65",
 ]
+
+[tool.ruff]
+line-length = 100
+indent-width = 4
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "W",
+    "F",
+    "I",
+    "B",
+    "UP",
+    "SIM",
+    "RUF",
+]
+ignore = [
+    "E501",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = [
+    "S101",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+docstring-code-format = true
+
+[tool.ty.src]
+include = ["src", "tests"]
+
+[tool.ty.environment]
+python-version = "3.14"
+root = ["./src"]
+
+[tool.ty.analysis]
+respect-type-ignore-comments = true
+strict-equality-semantics = false
+
+[tool.ty.terminal]
+output-format = "concise"
+error-on-warning = true
