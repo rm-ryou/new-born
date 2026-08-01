@@ -28,6 +28,7 @@ select = [
     "UP",
     "SIM",
     "RUF",
+    "S",
 ]
 ignore = [
     "E501",
