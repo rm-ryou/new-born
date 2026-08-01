@@ -4,7 +4,11 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "pyyaml>=6.0.3",
+    "regex>=2026.7.19",
+    "tqdm>=4.70.0",
+]
 
 [dependency-groups]
 dev = [
@@ -44,6 +48,9 @@ quote-style = "double"
 indent-style = "space"
 line-ending = "auto"
 docstring-code-format = true
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
 
 [tool.ty.src]
 include = ["src", "tests"]

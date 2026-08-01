@@ -1,0 +1,4 @@
+input: data/raw/tiny_codes.txt
+output: data/tokenizer/merge_rules.pkl
+vocab_size: 1000
+end_token: "<|endoftext|>"
