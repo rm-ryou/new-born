@@ -102,11 +102,11 @@ class BPETokenizer:
         self.vocab_size = len(self.id_to_bytes)
 
     @staticmethod
-    def load_from(filepath: str | Path) -> BPETokenizer:
+    def load_from(filepath: str | Path, end_token: str = DEFAULT_END_TOKEN) -> BPETokenizer:
         """Load merge rules saved by save_to(). Only use trusted pickle files."""
         with Path(filepath).open("rb") as f:
             merge_rules = pickle.load(f)  # noqa: S301
-        return BPETokenizer(merge_rules)
+        return BPETokenizer(merge_rules, end_token=end_token)
 
     def save_to(self, filepath: str | Path) -> None:
         """Save merge rules as a pickle file."""

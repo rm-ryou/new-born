@@ -80,3 +80,16 @@ def test_bpe_tokenizer_save_and_load_round_trips_merge_rules(tmp_path) -> None:
 
     assert loaded.merge_rules == tokenizer.merge_rules
     assert loaded.decode(loaded.encode("hello unseen")) == "hello unseen"
+
+
+def test_bpe_tokenizer_load_from_accepts_end_token(tmp_path) -> None:
+    end_token = "<|custom_end|>"  # noqa: S105
+    merge_rules = train_bpe(f"hello{end_token}world", vocab_size=270, end_token=end_token)
+    tokenizer = BPETokenizer(merge_rules, end_token=end_token)
+    filepath = tmp_path / "tokenizer.pkl"
+
+    tokenizer.save_to(filepath)
+    loaded = BPETokenizer.load_from(filepath, end_token=end_token)
+
+    assert loaded.end_token == end_token
+    assert loaded.decode(loaded.encode(f"hello{end_token}world")) == f"hello{end_token}world"

@@ -8,15 +8,14 @@ Output:
 """
 
 from __future__ import annotations
+from new_born.tokenizer.bpe import DEFAULT_END_TOKEN
+from new_born.tokenizer import BPETokenizer, train_bpe
 
 import sys
 from pathlib import Path
 from typing import Any
 
 import yaml
-
-from new_born.tokenizer import BPETokenizer, train_bpe
-from new_born.tokenizer.bpe import DEFAULT_END_TOKEN
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
